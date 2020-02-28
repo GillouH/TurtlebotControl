@@ -56,6 +56,6 @@ if __name__ == "__main__":
 	except KeyboardInterrupt:
 		pass
 	finally:
-		r = client.publish(TOPIC, "fin")
+		r = clientMQTT.publish(TOPIC, "fin")
 		print("\t" + ("envoyé" if r[0] == 0 else "echec"))
 		clientMQTT.disconnect()
