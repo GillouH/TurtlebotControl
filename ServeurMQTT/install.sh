@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Mise à jour du système
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt update
+sudo apt upgrade
 
 # Installation du serveur MQTT
-sudo apt-get install mosquitto
+sudo apt install mosquitto
 
 # Redémarre le système
 sudo reboot now
