@@ -35,6 +35,8 @@ def traitement(donnees):
 
 def reception(client, userdata, message):
 	msg = message.payload.decode()
+	if msg == "fin":
+		exit()
 	donnees = msg.split(",")
 
 	x = float(donnees[0])

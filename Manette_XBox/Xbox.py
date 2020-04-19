@@ -42,8 +42,8 @@ def envoi(donnees, client):
 
 
 if __name__ == "__main__":
+	clientMQTT = mqtt_client.Client(client_id=TOPIC+"Pub")
 	try:
-		clientMQTT = mqtt_client.Client(client_id=TOPIC+"Pub")
 		print("Connexion en cours...")
 		clientMQTT.connect(host=IP, port=PORT, keepalive=ALIVE)
 		print("Connecté !")
@@ -56,4 +56,6 @@ if __name__ == "__main__":
 	except KeyboardInterrupt:
 		pass
 	finally:
+		r = clientMQTT.publish(TOPIC, "fin")
+		print("\t" + ("envoyé" if r[0] == 0 else "echec"))
 		clientMQTT.disconnect()
